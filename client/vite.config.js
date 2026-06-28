@@ -7,7 +7,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/posts': {
-        target: 'http://localhost:5000',
+        target: 'https://prodesk-it-mission-11.vercel.app/',
         changeOrigin: true,
       },
     },

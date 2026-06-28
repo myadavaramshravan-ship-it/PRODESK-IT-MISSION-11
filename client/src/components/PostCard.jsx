@@ -1,7 +1,9 @@
 export default function PostCard({ post, fetchPosts }) {
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const deletePost = async () => {
     try {
-      await fetch(`/posts/${post._id}`, {
+      await fetch(`${API_URL}/posts/${post._id}`, {
         method: "DELETE",
       });
 

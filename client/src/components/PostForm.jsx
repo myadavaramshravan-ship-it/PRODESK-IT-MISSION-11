@@ -4,11 +4,13 @@ export default function PostForm({ fetchPosts }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("/posts", {
+      const response = await fetch(`${API_URL}/posts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
