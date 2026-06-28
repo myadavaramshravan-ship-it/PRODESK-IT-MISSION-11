@@ -74,6 +74,3 @@ npm install
 cd server
 npm install
 
-# Run the Project
-
-#
