@@ -1,0 +1,272 @@
+﻿:root {
+  --bg: #eef2ff;
+  --surface: #ffffff;
+  --surface-soft: #f5f7ff;
+  --text: #141625;
+  --text-muted: #5e6a88;
+  --border: #dbe0f0;
+  --accent: #4f5dff;
+  --accent-soft: rgba(79, 93, 255, 0.16);
+  --shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+  --radius: 26px;
+  --radius-sm: 16px;
+  --font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font);
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background: linear-gradient(180deg, #f9fbff 0%, #eef2ff 100%);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+p {
+  color: var(--text-muted);
+}
+
+.app-container {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 56px;
+}
+
+.app-header {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.app-header h1 {
+  font-size: clamp(2.5rem, 3.5vw, 3.75rem);
+  line-height: 1.02;
+}
+
+.app-header p {
+  max-width: 760px;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 360px minmax(0, 1fr);
+  gap: 24px;
+}
+
+.form-panel,
+.posts-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+.form-panel {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+}
+
+.section-title {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.section-title h2 {
+  font-size: 1.5rem;
+}
+
+.section-title p {
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.post-form {
+  display: grid;
+  gap: 16px;
+}
+
+.post-input,
+.post-textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface-soft);
+  padding: 16px 18px;
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-input:focus,
+.post-textarea:focus {
+  outline: none;
+  border-color: rgba(79, 93, 255, 0.45);
+  box-shadow: 0 0 0 4px rgba(79, 93, 255, 0.12);
+}
+
+.post-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-button,
+.delete-button {
+  border-radius: 16px;
+  padding: 14px 22px;
+  font-weight: 600;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+.submit-button {
+  background: linear-gradient(135deg, #485bff, #6a55ff);
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgba(75, 69, 255, 0.18);
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.submit-button:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.posts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.posts-count {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.post-list {
+  display: grid;
+  gap: 18px;
+}
+
+.post-card {
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+}
+
+.post-card h2 {
+  font-size: 1.25rem;
+}
+
+.post-card p {
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.post-meta {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.delete-button {
+  background: #ff6d5e;
+  color: #ffffff;
+}
+
+.delete-button:hover {
+  transform: translateY(-1px);
+}
+
+.loading-message,
+.error-message,
+.post-list > p {
+  margin: 0;
+  padding: 18px 20px;
+  border-radius: 18px;
+  font-size: 0.98rem;
+}
+
+.loading-message {
+  background: #eef4ff;
+  color: #23327a;
+}
+
+.error-message {
+  background: #ffe7e8;
+  color: #a6152e;
+}
+
+@media (max-width: 920px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .form-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-container {
+    width: calc(100% - 24px);
+    padding: 24px 0 40px;
+  }
+
+  .form-panel,
+  .posts-panel {
+    padding: 22px;
+  }
+
+  .submit-button,
+  .delete-button {
+    width: 100%;
+  }
+}
